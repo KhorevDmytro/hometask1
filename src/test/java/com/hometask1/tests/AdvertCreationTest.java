@@ -28,10 +28,7 @@ public class AdvertCreationTest extends _BaseTest {
     public void AdvertCreation(Advert advert) {
 
         homePage
-                .clickAddPost();
-
-        LoginPopup loginPopup = new LoginPopup();
-        loginPopup
+                .clickAddPost()
                 .enterEmail(advert.email)
                 .enterPassword(advert.password)
                 .submitLogin()

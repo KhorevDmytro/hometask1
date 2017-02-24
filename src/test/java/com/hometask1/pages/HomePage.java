@@ -1,6 +1,7 @@
 package com.hometask1.pages;
 
 import com.hometask1.common.util.UrlLocator;
+import com.hometask1.pages.popups.LoginPopup;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -24,9 +25,10 @@ public class HomePage extends _Page{
     WebElement postNewAdLink;
 
     @Step
-    public void clickAddPost() {
+    public LoginPopup clickAddPost() {
         postNewAdLink.click();
         waitAjaxStop();
+        return new LoginPopup();
     }
 
 }
