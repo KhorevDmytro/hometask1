@@ -1,5 +1,6 @@
 package com.hometask1.pages.popups;
 
+import com.hometask1.pages.PostNewAdPage;
 import com.hometask1.pages._Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,8 +34,8 @@ public class LoginPopup extends _Page {
     }
 
     @Step
-    public LoginPopup submitLogin() {
+    public PostNewAdPage submitLogin() {
         se_userLogin.click();
-        return this;
+        return new PostNewAdPage();
     }
 }

@@ -1,6 +1,7 @@
 package com.hometask1.pages;
 
 import com.hometask1.common.session.DriverManager;
+import com.hometask1.pages.popups.SelectCategoryPopup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,10 +48,11 @@ public class PostNewAdPage extends _Page {
     }
 
     @Step
-    public void openPopupToSelectCategory() {
+    public SelectCategoryPopup openPopupToSelectCategory() {
         waitForVisible(target);
         target.click();
         waitAjaxStop();
+        return new SelectCategoryPopup();
     }
 
     @Step
@@ -64,7 +66,7 @@ public class PostNewAdPage extends _Page {
         mapAddress.clear();
         mapAddress.sendKeys(text);
         WebElement autosuggest = driver.findElement(By.id("autosuggest-geo-ul"));
-        waitForVisible(autosuggest);
+        waitAjaxStop(1);
         List<WebElement> options = autosuggest.findElements(By.tagName("a"));
         for (WebElement option : options) {
             if(option.getAttribute("innerText").equals(text)){

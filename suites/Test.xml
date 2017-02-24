@@ -4,7 +4,7 @@
     <parameter name="browser" value="chrome"/>
     <test name="Search" enabled="true">
         <classes>
-            <class name="com.hometask1.tests.LoginTest"/>
+            <class name="com.hometask1.tests.AdvertCreationTest"/>
         </classes>
     </test>
     <listeners>

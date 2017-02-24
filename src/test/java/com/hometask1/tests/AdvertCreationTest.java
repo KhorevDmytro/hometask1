@@ -17,7 +17,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 /**
  * Created by KDAMAC on 24.02.17.
  */
-public class LoginTest extends _BaseTest {
+public class AdvertCreationTest extends _BaseTest {
 
     private HomePage homePage;
 
@@ -34,19 +34,10 @@ public class LoginTest extends _BaseTest {
         loginPopup
                 .enterEmail(advert.email)
                 .enterPassword(advert.password)
-                .submitLogin();
-
-        PostNewAdPage postNewAdPage = new PostNewAdPage();
-        postNewAdPage
-                .openPopupToSelectCategory();
-
-        SelectCategoryPopup selectCategoryPopup = new SelectCategoryPopup();
-        selectCategoryPopup
+                .submitLogin()
+                .openPopupToSelectCategory()
                 .selectCategory(advert.category)
-                .selectSubCategory(advert.subCategory);
-
-        PostNewAdPage postNewAdPage2 = new PostNewAdPage();
-        postNewAdPage2
+                .selectSubCategory(advert.subCategory)
                 .enterTitle(advert.title)
                 .enterPrice(advert.price)
                 .selectBusiness(advert.business)
@@ -63,9 +54,4 @@ public class LoginTest extends _BaseTest {
 
         homePage = new HomePage(true);
     }
-
-//    @AfterMethod
-//    public void deletePost(){
-//
-//    }
 }

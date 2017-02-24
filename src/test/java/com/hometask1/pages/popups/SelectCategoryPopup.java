@@ -1,5 +1,6 @@
 package com.hometask1.pages.popups;
 
+import com.hometask1.pages.PostNewAdPage;
 import com.hometask1.pages._Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -35,7 +36,7 @@ public class SelectCategoryPopup extends _Page {
     }
 
     @Step
-    public void selectSubCategory(String text) {
+    public PostNewAdPage selectSubCategory(String text) {
         String dataCategory = mainCategory.getAttribute("data-category");
         List<WebElement> options = driver.findElement(By.id("category-"+dataCategory)).findElements(By.tagName("a"));
         for (WebElement option : options) {
@@ -45,5 +46,6 @@ public class SelectCategoryPopup extends _Page {
             }
         }
         waitAjaxStop();
+        return new PostNewAdPage();
     }
 }

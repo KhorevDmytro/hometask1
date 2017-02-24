@@ -17,46 +17,6 @@ public class Waiter {
     private static final long IMPLICIT_INTERVAL = 1000;
     private static final long POLLING_INTERVAL = 100;
 
-/*    public static void waitForModalClosed(String modalId) {
-        wrappedWait(ExpectedConditions.invisibilityOfElementLocated(By.id(modalId)));
-    }
-
-    public static WebElement waitForClickable(WebElement element) {
-        return wrappedWait(ExpectedConditions.elementToBeClickable(element));
-    }*/
-
-    public static boolean waitForNotPresent(final By by) {
-        try {
-            return wrappedWait(new ExpectedCondition<Boolean>() {
-                public Boolean apply(WebDriver driver) {
-                    try{
-                        driver.findElement(by);
-                    } catch (NoSuchElementException e) {
-                        return true;
-                    }
-                    return false;
-                }
-            });
-        } catch(TimeoutException e) {
-            return false;
-        }
-    }
-
-    public static void waitForInvisible(By by) {
-        wrappedWait(ExpectedConditions.invisibilityOfElementLocated(by));
-    }
-
-    public static void waitForInvisible(final WebElement element) {
-
-        wrappedWait((ExpectedCondition<Boolean>) driver -> {
-            try {
-                return !element.isDisplayed();
-            } catch (NoSuchElementException e) {
-                return true;
-            }
-        });
-    }
-
     public static WebElement waitForVisible(WebElement element) {
         return wrappedWait(ExpectedConditions.visibilityOf(element));
     }
